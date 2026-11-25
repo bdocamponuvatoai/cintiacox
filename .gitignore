@@ -1,0 +1,26 @@
+# Dependencies
+node_modules/
+
+# Next.js build output
+.next/
+out/
+.preview-build/
+next-env.d.ts
+*.tsbuildinfo
+
+# Environment and secrets (keep the documented example)
+.env*
+!.env.example
+
+# Hosting and tooling
+.vercel/
+.openai/
+
+# Logs and archives
+npm-debug.log*
+*.zip
+*.tar.gz
+
+# OS files
+.DS_Store
+Thumbs.db

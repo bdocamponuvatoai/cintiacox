@@ -1,0 +1,12 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {createInquiryHandler} from '../lib/inquiries';
+const valid={name:'Preview Test',email:'preview@example.com',phone:'',intent:'Relocate',language:'English',timing:'Exploring',timezone:'UTC',message:'This is a local test inquiry only.',consent:true,website:''};
+const config={apiKey:'test-only',from:'sender@example.com',to:'recipient@example.com',origin:'https://example.com'};
+const request=(body:unknown=valid,origin='https://example.com')=>new Request('https://example.com/api/inquiries/',{method:'POST',headers:{origin,'content-type':'application/json'},body:JSON.stringify(body)});
+test('unconfigured delivery is explicit and sends nothing',async()=>{const r=await createInquiryHandler({origin:'https://example.com'})(request());assert.equal(r.status,503);assert.equal((await r.json()).code,'DELIVERY_NOT_CONFIGURED')});
+test('requires matching origin',async()=>{assert.equal((await createInquiryHandler(config)(request(valid,'https://other.example'))).status,403)});
+test('rejects invalid email and missing consent',async()=>{const h=createInquiryHandler(config);assert.equal((await h(request({...valid,email:'bad'}))).status,400);assert.equal((await h(request({...valid,consent:false}))).status,400)});
+test('rejects honeypot entries',async()=>{assert.equal((await createInquiryHandler(config)(request({...valid,website:'bot'}))).status,400)});
+test('rejects oversized input',async()=>{assert.equal((await createInquiryHandler(config)(request({...valid,message:'x'.repeat(13000)}))).status,413)});
+test('rate limits repeated attempts',async()=>{const h=createInquiryHandler({origin:'https://example.com'});for(let i=0;i<8;i++)await h(request());assert.equal((await h(request())).status,429)});
+test('sends only to configured recipient and uses plain text',async()=>{let payload:any;const mock=async(_url:any,init:any)=>{payload=JSON.parse(init.body);return Response.json({id:'test-receipt'})};const r=await createInquiryHandler(config,mock as typeof fetch)(request());assert.equal(r.status,200);assert.deepEqual(payload.to,['recipient@example.com']);assert.equal(payload.reply_to,valid.email);assert.equal(payload.html,undefined);assert.match(payload.text,/Preview Test/)});
+test('provider failure never reports success',async()=>{const mock=async()=>Response.json({error:'unavailable'},{status:500});assert.equal((await createInquiryHandler(config,mock as typeof fetch)(request())).status,502)});

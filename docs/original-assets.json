@@ -1,0 +1,92 @@
+[
+  {
+    "name": "cintia-cox",
+    "source": "https://www.compass.com/m/14/5f8451c5-6cb7-4708-9428-4e18ba48e9e5/origin.jpg",
+    "originalDimensions": [
+      810,
+      810
+    ],
+    "file": "public/assets/cintia-cox.webp"
+  },
+  {
+    "name": "marbella",
+    "source": "https://www.compass.com/m/0f5ad0b25df74661a0d63a4286d8a2cb2cd919ec_img_0_6ad3d/origin.jpg",
+    "originalDimensions": [
+      1279,
+      853
+    ],
+    "file": "public/assets/marbella.webp"
+  },
+  {
+    "name": "fort-lauderdale-home",
+    "source": "https://www.compass.com/m/a2b7c8d39272042d1d2391457631e8b43d7ee24a3f72cca42216771701c76937/origin.jpg",
+    "originalDimensions": [
+      1600,
+      1065
+    ],
+    "file": "public/assets/fort-lauderdale-home.webp"
+  },
+  {
+    "name": "delray-beach",
+    "source": "https://www.thepalmbeaches.com/wp-content/uploads/x012x-Delray-Beach-Coconut-Tree-and-Sky-Colors-at-Beach.jpg",
+    "originalDimensions": [
+      1600,
+      810
+    ],
+    "file": "public/assets/delray-beach.webp"
+  },
+  {
+    "name": "palm-beach",
+    "source": "https://www.thepalmbeaches.com/wp-content/uploads/2023/02/TPB-Palm-Beach-Clocktower-Landscape-Copy.jpg",
+    "originalDimensions": [
+      1200,
+      900
+    ],
+    "file": "public/assets/palm-beach.webp"
+  },
+  {
+    "name": "boca-raton",
+    "source": "https://www.thepalmbeaches.com/wp-content/uploads/x041x-Mizner-Park-Downtown-Night-Life-Boca-Raton-Florida.jpg",
+    "originalDimensions": [
+      1600,
+      810
+    ],
+    "file": "public/assets/boca-raton.webp"
+  },
+  {
+    "name": "watermark",
+    "source": "https://www.compass.com/m/f7c8ec47f4bc5b11eceffca745c40dcbff7eac3e_img_0_6cb68/origin.jpg",
+    "originalDimensions": [
+      1086,
+      724
+    ],
+    "file": "public/assets/watermark.webp"
+  },
+  {
+    "name": "delray-home",
+    "source": "https://www.compass.com/m/0d88ed93cd956b6140079b7430ae8f5921fbc511_img_0_37fac/origin.jpg",
+    "originalDimensions": [
+      1619,
+      1312
+    ],
+    "file": "public/assets/delray-home.webp"
+  },
+  {
+    "name": "carlton",
+    "source": "https://www.compass.com/m/119d749a7664b6ffc3d98580a208b708f1f876c7_img_0_a02a3/origin.jpg",
+    "originalDimensions": [
+      2500,
+      1667
+    ],
+    "file": "public/assets/carlton.webp"
+  },
+  {
+    "name": "highland-beach",
+    "source": "https://www.compass.com/m/09a932dafeaae15c82302bb82c234fce1885ca3ee60403b32f7fc33c892ea0aa/origin.jpg",
+    "originalDimensions": [
+      3000,
+      1989
+    ],
+    "file": "public/assets/highland-beach.webp"
+  }
+]
